@@ -66,11 +66,28 @@
         background-color: #e0661a;
       }
 
+      .site-header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        background: #111111;
+        color: white;
+      }
+
       .logo {
         width: 160px;
         height: auto;
         display: block;
         margin: 0 auto 10px auto;
+      }
+
+      .title-group h1 {
+        margin: 0;
+      }
+
+      .title-group p {
+        margin: 3px 0 0 0;
+        font-size: 14px;
       }
 
       h2{
@@ -88,11 +105,13 @@
     </style>
 
     <body>
-      <header>
+      <header class="site-header">
         <a href="index.html">
         <img src="Images/VEC_Logo_2026-removebg-preview.png" alt="Vulpera Ecological Collective logo since 2026" class="logo"></a>
+        <div class="title-group">
         <h1>Vulpera Ecological Collective</h1>
         <p>Wildlife Conservation | Education | Ecological Protection</p>
+        </div>
       </header>
 
       <nav>
