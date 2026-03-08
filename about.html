@@ -54,12 +54,35 @@
         margin-bottom:40px;
       }
 
+       .site-header {
+        display: grid;
+        grid-template-columns: 310px 1fr 310px;
+        align-items: center;
+        padding: 0;
+        background: #111111;
+        color: white;
+      }
+
       .logo {
-        width: 80px;
+        width: 160px;
         height: auto;
         display: block;
         margin: 0 auto 10px auto;
       }
+
+      .title-group {
+        text-align: center;
+        margin: 0;
+      }
+
+      .site-title {
+        text-align: center;
+        margin: 0;
+      }
+
+      .subtitle {
+        margin: 0;
+        font-size: 14px;
 
       h2{
         color:#2f5d3a;
@@ -77,11 +100,13 @@
   </head>
 
   <body>
-    <header>
+    <header class="site-header">
       <a href="index.html">
-        <img src="images/VEC_Logo_2026-removebg-preview.png" alt="Vulpera Ecological Collective logo since 2026" class="logo"></a>
-      <h1>Vulpera Ecological Collective</h1>
-      <p>Wildlife Conservation | Education | Ecological Protection</p>
+        <img src="VEC_Logo_enlarged" alt="Vulpera Ecological Collective logo since 2026" class="logo"></a>
+      <div class="title-group">
+      <h1 class="site-title">Vulpera Ecological Collective</h1>
+      <p class="subtitle">Wildlife Conservation | Education | Ecological Protection</p>
+      </div>
     </header>
 
     <nav>
@@ -139,7 +164,6 @@
       and author with a vision of making conservation and environmental education accessible
       to everyone.
     </p>
-    </div>
     </div>
 
     <footer>
