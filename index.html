@@ -105,6 +105,51 @@
         color:black;
       }
 
+      .memorial {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .memorial-grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .memorial-card {
+        background: #FFF;
+        border-radius: 8px;
+        padding: 15px;
+        width: 200px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      }
+
+      .memorial-card img {
+        width: 100%;
+        border-radius: 6px;
+      }
+
+      .memorial-card h3 {
+        margin-top: 10px;
+      }
+
+      .memorial-card .title {
+        font-style: italic;
+      }
+
+      .memorial-card .dates {
+        color: #666;
+      }
+
+      .memorial-card .quote {
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+        font-size: 0.9em;
+      }
+
       footer{
         background:#2f5d3a;
         color:white;
@@ -117,7 +162,7 @@
         background-color: #111111;
         color: white;
         padding: 20px;
-        width: 100%
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -209,6 +254,50 @@
           <a href="projects.html" class="button">Our Projects</a>
           <a href="support.html" class="button">Support Our Mission</a>
         </div>
+
+        <section class="memorial">
+
+            <h2>Honoring Our Heroes</h2>
+
+            <p>We honor the scientists, conservationists, and visionaries whose work helped protect the natural world.
+                Their dedication and passion inspire us to continue their legacy for generations to come.
+            </p>
+
+            <div class="memorial-grid">
+
+                <div class="memorial-card">
+                    <img src="Queen Elizabeth II.jpg" alt="Queen Elizabeth II">
+                    <h3>Queen Elizabeth II</h3>
+                    <p class="title">Former Queen of the United Kingdom</p>
+                    <p class="dates">1926 - 2022</p>
+                    <p class="quote"><i>"It is often the small steps, not the giant leaps, that bring about
+                        the most lasting change.</i></p>
+
+                    <img src="Justin-Schmidt.jpg" alt="Justin O. Schmidt">
+                    <h3>Justin O. Schmidt</h3>
+                    <p class="title">Etymologist</p>
+                    <p class="dates">1947 - 2023</p>
+
+                    <img src="Brian Barczyk.jpg" alt="Brian Barczyk">
+                    <h3>Brian Barczyk</h3>
+                    <p class="title">Herpetologist and Content Creator</p>
+                    <p class="dates">1969 - 2024</p>
+                    <p class="quote"><i>"I love all animals. But in particular, I have an affinity towards reptiles
+                        and all I want is for people to realize how amazing they are."</i></p>
+
+                    <img src="Mikayla Raines.jpg" alt="Mikayla Raines">
+                    <h3>Mikayla Raines</h3>
+                    <p class="title">Founder of SaveAFox Rescue</p>
+                    <p class="dates">1995 - 2025</p>
+
+                    <img src="Jane Goodall.jpg" alt="Jane Goodall">
+                    <h3>Dr. Jane Goodall</h3>
+                    <p class="title">Primatologist and Ethologist</p>
+                    <p class="dates">1934 - 2025</p>
+                    <p class="quote"><i>"If we kill off the wild, then we are killing a part of our souls."</i></p>
+                </div>
+            </div>
+        </section>
         </main>
         
          <footer class="site-footer">
