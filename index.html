@@ -150,6 +150,22 @@
         font-size: 0.9em;
       }
 
+      .animal-post {
+        border-bottom: 1px solid #ddd;
+        padding: 12px 0;
+      }
+
+      #animal-of-the-day {
+        margin-top: 40px;
+      }
+
+      .animal-post img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
       footer{
         background:#2f5d3a;
         color:white;
@@ -231,22 +247,11 @@
           conservation to restore the balance of our natural world.</p>
         </div>
 
-        <div class="section">
-          <h2>🐾 Animal of the Day 🐾</h2>
-          <h3>8 March 2026</h3>
-          <p>The Fennec Fox</p>
-          <p>Native to the vast deserts of the Sahara Desert and across North Africa, the fennec
-            fox is the smallest species of fox in the world — but it has the largest ears relative 
-            to its body size of any canid. Those iconic ears aren’t just adorable. They help the fox
-            dissipate heat in extreme desert temperatures and act like sensitive radar, allowing it to
-            hear insects and small animals moving beneath the sand. Fennec foxes are nocturnal, meaning 
-            they are most active at night when the desert cools down. During the day they rest in burrows 
-            dug deep into the sand, which help protect them from the scorching heat. Their thick fur even 
-            grows on the bottoms of their feet, giving them protection from the hot desert ground and 
-            helping them move easily across loose sand. Despite living in such harsh environments, these tiny 
-            foxes thrive by feeding on insects, rodents, reptiles, and plants, getting much of the water they 
-            need directly from their food. Small, resilient, and perfectly adapted to desert life, the fennec 
-            fox is a great reminder of how wildlife evolves to survive even the toughest conditions.</p>
+        <div class="section"></div>
+        <section id="animal-of-the-day">
+          <h2>Animal of the Day</h2>
+          <div id="bsky-feed">Loading latest animals...</div>
+        </section>
         </div>
 
         <div>
@@ -304,6 +309,13 @@
                     <p class="dates">1934 - 2025</p>
                     <p class="quote"><i>"If we kill off the wild, then we are killing a part of our souls."</i></p>
                 </div>
+              </div class="memorial-card">
+
+              <img src="Dr_Birute_Galdikas.jpg" alt="Birutė Galdikas">
+              <h3>Dr. Birutė Galdikas</h3>
+              <p class="title">Primatologist and Anthropologist</p>
+              <p class="dates">1946 - 2026</p>
+              <p class="quote"><i>"When you look into the eyes of an orangutan, you see an ancestor of ours. It is unthinkable that this creature could disappear."</i></p>
             </div>
         </section>
         </main>
@@ -325,5 +337,52 @@
       </div>
         <img src="VEC_Logo_enlarged.png" alt="Vulpera logo since 2026" class="footer-logo">
       </footer>
+
+      <script>
+        const handle = 'vulperaeco.org';
+        async function loadAnimalPosts() {
+          try {
+            const res = await
+            fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=20`);
+            const data = await res.json();
+
+            const container = document.getElementById('bsky-feed');
+            container.innerHTML = '';
+
+            const posts = data.feed.filter(post =>
+              post.post.record.text.toLowerCase().includes('#animaloftheday')
+            );
+
+            if (posts.length === 0) {
+              container.innerHTML = "No animal of the day posts found yet.";
+              return;
+            }
+
+            posts.slice(0, 5).forEach(item => {
+              const text = item.post.record.text;
+              const link = `https://bsky.app/profile/${handle}/post/${item.post.uri.split('/').pop()}`;
+
+              let image = '';
+              if (item.post.embed && item.post.embed.images && item.post.embed.images.length > 0) {
+                image = item.post.embed.images[0].fullsize;
+              }
+
+              const div = document.createElement('div');
+              div.className = 'animal-post';
+
+              div.innerHTML = `
+              <p>${text}</p>
+              ${image ? `<img src ='${image}' alt="Animal of the Day">` : ''}
+              <a href='${link}' target='_blank'>View on Bluesky</a>
+              `;
+              container.appendChild(div);
+            });
+          } catch (err) {
+            document.getElementById('bsky-feed').innerText = "Failed to load posts.";
+          }
+        }
+
+        loadAnimalPosts();
+      </script>
     </body>
 </html>
