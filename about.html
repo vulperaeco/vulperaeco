@@ -87,7 +87,7 @@
       h2{
         color:#2f5d3a;
       }
-
+      
       footer{
         background:#2f5d3a;
         color:white;
@@ -95,7 +95,38 @@
         padding:15px;
         margin-top:40px;
       }
-      
+
+      .site-footer {
+        background-color: #111111;
+        color: white;
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+      }
+
+      .site-footer a {
+        color: #FF7A00;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .site-footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-container p {
+        margin: auto;
+      }
+
+      .footer-logo {
+        position: absolute;
+        right: 20px;
+        width: 50px;
+      }
     </style>
   </head>
 
@@ -167,8 +198,22 @@
     </p>
     </div>
 
-    <footer>
-      <p>© 2020 - 2026 Vulpera Ecological Collective</p>
-    </footer>
+     <footer class="site-footer">
+        <div class="footer-container p">
+      <p>© 2020 - 2026 Vulpera Ecological Collective. All rights reserved.</p>
+      <p>
+        <a href="about.html">About</a> |
+        <a href="mission.html">Mission</a> |
+        <a href="support.html">Support Us</a>
+      </p>
+      <p>
+        Follow us:
+        <a href="https://instagram.com/vulperaeco" target="_blank">Instagram</a> |
+        <a href="https://x.com/vulperaeco" target="_blank">Twitter/X</a> |
+        <a href="https://www.facebook.com/share/1GXtVb9H3a/" target="_blank">Facebook</a>
+      </p>
+      </div>
+        <img src="VEC_Logo_enlarged.png" alt="Vulpera logo since 2026" class="footer-logo">
+      </footer>
   </body>
 </html>
