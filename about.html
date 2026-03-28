@@ -83,9 +83,53 @@
       .subtitle {
         margin: 0;
         font-size: 14px;
+      }
 
       h2{
         color:#2f5d3a;
+      }
+
+      #team {
+        font-family: Libre Baskerville, serif;
+        margin: 20px;
+      }
+
+      #team h2 {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        margin-top: 20px;
+      }
+
+      .founder {
+        margin-bottom: 30px;
+      }
+
+      .board-members {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .board-members .member {
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+
+      .locations {
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .location {
+        margin-bottom: 20px;
+      }
+
+      .volunteers {
+        list-style-type: disc;
+        margin-left: 20px;
       }
       
       footer{
@@ -188,15 +232,41 @@
     </p>
     </div>
 
-    <h2>Our Founder</h2>
+    <section id="team">
+        <h2>Our Founder</h2>
+        <div class="founder">
+            <h3>Soren Saal</h3>
+            <p>Founder and Lead Conservationist</p>
+        </div>
 
-    <div class="section">
-      <p>
-      Vulpera Ecological Collective was founded by Soren Saal, a Deaf wildlife enthusiast
-      and author with a vision of making conservation and environmental education accessible
-      to everyone.
-    </p>
-    </div>
+        <div class="board-members">
+            <div class="member">
+                <h3>Soren Saal</h3>
+                <p>Chairman and President</p>
+            </div>
+            <div class="member">
+                <h3>Trevor Morsman</h3>
+                <p>Treasurer</p>
+            </div>
+
+        </div>
+        <h1>Our Volunteers</h1>
+        <div class="locations">
+            <div class="location">
+                <h3>United Kingdom</h3>
+                <ul class="volunteers">
+                    <li>Beau Drysdale</li>
+                </ul>
+            </div>
+            
+            <div class="location">
+                <h3>United States</h3>
+                <ul class="volunteers">
+                    <li>Dylan Cantrell</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
      <footer class="site-footer">
         <div class="footer-container p">
