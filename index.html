@@ -360,8 +360,13 @@
       <script>
         const handle = 'vulperaeco.org';
 
-        function parsePost(text) {
-          const lines = text.split('/n').filter(l => l.trim() !== '');
+       function parsePost(text) {
+          const lines = text
+          .replace(/\r/g, '')
+          .split('/n')
+          .map(l => l.trim())
+          .filter(l => l.length);
+         
           return {
             title: lines[0] || '',
             date: lines[1] || '',
