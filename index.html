@@ -362,66 +362,48 @@
       <script>
         const handle = 'vulperaeco.org';
 
-       function parsePost(text) {
-          const lines = text
-          .replace(/\r/g, '')
-          .split('/n')
-          .map(l => l.trim())
-          .filter(l => l.length);
-         
-          return {
-            title: lines[0] || '',
-            date: lines[1] || '',
-            animal: lines[2] || '',
-            facts: lines.slice(3).join(' ')
-          };
-        }
+        async function loadAnimalPosts() {
+           const container = document.getElementById('bsky-feed');
 
-       async function loadAnimalPosts() {
           try {
             const res = await
-            fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=20`);
+            fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=30`);
             const data = await res.json();
-
-            const container = document.getElementById('bsky-feed');
-            container.innerHTML = '';
 
             const posts = data.feed.filter(post =>
               post.post.record.text.toLowerCase().includes('#animaloftheday')
             );
 
-            if (posts.length === 0) {
+            if (!posts.length) {
               container.innerHTML = "No animal of the day posts found yet.";
               return;
             }
 
-            posts.slice(0, 5).forEach(item => {
-              const link = `https://bsky.app/profile/${handle}/post/${item.post.uri.split('/').pop()}`;
-
-              const latest = posts[0];
+             const latest = posts[0];
               const text = latest.post.record.text;
-              const parsed = parsePost(latest.post.record.text);
 
-              let image = '';
-              if (item.post.embed && item.post.embed.images && item.post.embed.images.length > 0) {
-                image = item.post.embed.images[0].fullsize;
-              }
+            const lines = text.split('/n').map(line => line.trim()).filter(Boolean);
 
-              const div = document.createElement('div');
-              div.className = 'animal-card';
+            const title = lines[0] || '';
+            const date = lines[1] || '';
+            const species = lines[2] || '';
+            const facts = lines.slice(3).join(' ');
 
+            let imageHTML = '';
+            if (latest.post.embed && latest.post.embed.images) {
+              const image = latest.post.embed.images[0].fullsize;
+              imageHTML = `<img src="${image}" alt="${species}" class="animal-image">`;
+            }
+            
               container.innerHTML = `
               <div class="animal-card">
-              <p>${text}</p>
-              ${image ? `<img src ='${image}' alt="Animal of the Day">` : ''}
-              <h3>${parsed.title}</h3>
-              <p class="date">${parsed.date}</p>
-              <p class="animal">${parsed.animal}</p>
-              <p class="facts">${parsed.facts}</p>
+              ${imageHTML}
+              <h2>${title}</h2>
+              <p class="date">${date}</p>
+              <p class="animal">${species}</p>
+              <p class="facts">${facts}</p>
               <a href='${link}' target='_blank'>View on Bluesky</a>
               `;
-              container.appendChild(div);
-            });
           } catch (err) {
             document.getElementById('bsky-feed').innerText = "Failed to load posts.";
           }
