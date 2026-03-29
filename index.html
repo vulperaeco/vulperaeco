@@ -272,10 +272,12 @@
         </section>
         </div>
 
+       <div style="align-items: center;">
         <div>
           <a href="about.html" class="button">More About Us</a>
           <a href="projects.html" class="button">Our Projects</a>
           <a href="support.html" class="button">Support Our Mission</a>
+          </div>
         </div>
 
         <section class="memorial">
@@ -375,7 +377,7 @@
           };
         }
 
-        async function loadAnimalPosts() {
+       async function loadAnimalPosts() {
           try {
             const res = await
             fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=20`);
@@ -394,10 +396,10 @@
             }
 
             posts.slice(0, 5).forEach(item => {
-              const text = item.post.record.text;
               const link = `https://bsky.app/profile/${handle}/post/${item.post.uri.split('/').pop()}`;
 
               const latest = posts[0];
+              const text = latest.post.record.text;
               const parsed = parsePost(latest.post.record.text);
 
               let image = '';
