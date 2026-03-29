@@ -359,19 +359,20 @@
         <img src="VEC_Logo_enlarged.png" alt="Vulpera logo since 2026" class="footer-logo">
       </footer>
 
-      <script>
+     <script>
         const handle = 'vulperaeco.org';
 
         async function loadAnimalPosts() {
            const container = document.getElementById('bsky-feed');
+           container.innerHTML = '';
 
           try {
             const res = await
-            fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=30`);
+            fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=20`);
             const data = await res.json();
 
             const posts = data.feed.filter(post =>
-              post.post.record.text.toLowerCase().includes('#animaloftheday')
+              post.post?.record?.text?.toLowerCase().includes('#animaloftheday')
             );
 
             if (!posts.length) {
@@ -379,10 +380,10 @@
               return;
             }
 
-             const latest = posts[0];
+              const latest = posts[0];
               const text = latest.post.record.text;
 
-            const lines = text.split('/n').map(line => line.trim()).filter(Boolean);
+            const lines = text.split('\n').map(line => line.trim()).filter(Boolean);
 
             const title = lines[0] || '';
             const date = lines[1] || '';
@@ -390,7 +391,7 @@
             const facts = lines.slice(3).join(' ');
 
             let imageHTML = '';
-            if (latest.post.embed && latest.post.embed.images) {
+            if (latest.post.embed?.images?.length) {
               const image = latest.post.embed.images[0].fullsize;
               imageHTML = `<img src="${image}" alt="${species}" class="animal-image">`;
             }
@@ -402,7 +403,6 @@
               <p class="date">${date}</p>
               <p class="animal">${species}</p>
               <p class="facts">${facts}</p>
-              <a href='${link}' target='_blank'>View on Bluesky</a>
               `;
           } catch (err) {
             document.getElementById('bsky-feed').innerText = "Failed to load posts.";
