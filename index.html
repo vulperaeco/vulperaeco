@@ -2,8 +2,8 @@
 <html lang="en">
 
   <head>
-   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
     <title>Home | Vulpera</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="VEC_favicon.png">
@@ -22,6 +22,10 @@
         color:#111111;
       }
 
+      html, body {
+        overflow-x: hidden;
+      }
+
       header{
         background:#111111;
         color:white;
@@ -31,19 +35,29 @@
         box-sizing: border-box;
       }
 
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
       main {
         max-width: 1000px;
         margin: auto;
         padding: 20px;
       }
 
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
       nav{
-        background:#F47A20;
-        padding:20px;
-        text-align:center;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         gap: 10px;
       }
 
@@ -52,6 +66,8 @@
         text-decoration:none;
         margin:0 15px;
         font-weight:bold;
+        padding: 6px 10px;
+        font-size: 0.9rem;
       }
 
       nav a:hover{
@@ -59,6 +75,7 @@
       }
 
       .container{
+        max-width: 1000px;
         margin:auto;
         padding:40px 20px;
       }
@@ -97,20 +114,14 @@
         display: block;
         margin: 0 auto 10px auto;
       }
-      
-     .title-group h1 {
+
+      .site-title {
         font-size: 1.2rem;
         text-align: center;
         margin: 0 10px;
         flex: 1;
       }
 
-      .title-group p {
-        text-align: center;
-        margin: 3px 0 0 0;
-        font-size: 14px;
-      }
-      
       h2{
         color:black;
       }
@@ -200,7 +211,7 @@
         font-weight: bold;
       }
 
-        @media (max-width: 600px) {
+      @media (max-width: 600px) {
         .header-inner {
           flex-direction: column;
           align-items: center;
@@ -223,14 +234,19 @@
         }
 
         .nav {
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          margin-top: 10px;
+        }
+
+        .nav-active {
+          display: flex;
         }
 
         .nav a {
-          padding: 6px 8px;
-          font-size: 0.85rem;
+          padding: 10px;
+          border-top: 1px solid #ddd;
         }
       }
 
@@ -293,17 +309,18 @@
         <a href="index.html">
         <img src="VEC_Logo_enlarged.png" alt="Vulpera Ecological Collective logo since 2026" class="logo"></a>
         <div class="title-group">
-        <h1 class="title-group h1">Vulpera Ecological Collective</h1>
-        <p class="title-group p">Wildlife Conservation | Education | Ecological Protection</p>
+        <h1 class="site-title">Vulpera Ecological Collective</h1>
         </div>
 
-      <nav>
-        <a href="index.html">Home</a> |
-        <a href="about.html">About Us</a> |
-        <a href="mission.html">Our Mission</a> |
-        <a href="news.html">News</a> |
-        <a href="education.html">Education</a> |
-        <a href="projects.html">Our Projects</a> |
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav class="nav" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="mission.html">Our Mission</a>
+        <a href="news.html">News</a>
+        <a href="education.html">Education</a>
+        <a href="projects.html">Our Projects</a>
         <a href="support.html">Support Us</a>
       </nav>
       </div>
@@ -327,13 +344,13 @@
           conservation to restore the balance of our natural world.</p>
         </div>
 
-         <div class="section"></div>
+        <div class="section"></div>
         <section id="animal-of-the-day">
           <h2 class="centered-header">Animal of the Day</h2>
           <div id="bsky-feed">Loading latest animals...</div>
         </section>
 
-       <p><b>Conservation Status</b></p>
+        <p><b>Conservation Status</b></p>
         <p><i>See that circle beside the animal name? That indicates the animal's conservation status.
           The list below explains what each color means:
         </i></p>
@@ -347,9 +364,9 @@
           <li><span style="color:black;">●</span> Extinct - The species has no documented living individuals remaining.</li>
           <li><span style="color:white;">●</span> Data Deficient - There is insufficient information to assess the species' risk of extinction.</li>
           </ul>
-          </div>
+        </div>
 
-       <div class="footer-buttons">
+        <div class="footer-buttons">
           <button><a href="about.html" class="button">More About Us</a></button>
           <button><a href="projects.html" class="button">Our Projects</a></button>
           <button><a href="support.html" class="button">Support Our Mission</a></button>
@@ -403,7 +420,7 @@
                     <p class="title">Primatologist and Ethologist</p>
                     <p class="dates">1934 - 2025</p>
                     <p class="quote"><i>"If we kill off the wild, then we are killing a part of our souls."</i></p>
-                      <a href="thank-you-jane.html" class="button">Thank You, Jane</a>
+                    <a href="thank-you-jane.html" class="button">Thank You, Jane</a>
                     </div>
                     <div class="memorial-card">
 
@@ -416,7 +433,8 @@
                  </div>
         </section>
         </main>
-        
+
+        <footer class="container">
          <footer class="site-footer">
         <div class="footer-container p">
       <p>© 2020 - 2026 Vulpera Ecological Collective. All rights reserved.</p>
@@ -434,8 +452,9 @@
       </div>
         <img src="VEC_Logo_enlarged.png" alt="Vulpera logo since 2026" class="footer-logo">
       </footer>
+    </footer>
 
-     <script>
+      <script>
         const handle = 'vulperaeco.org';
 
         async function loadAnimalPosts() {
@@ -486,6 +505,11 @@
         }
 
         loadAnimalPosts();
+
+        function toggleMenu() {
+          const menu = document.getElementById('nav-menu');
+          menu.classList.toggle('active');
+        }
       </script>
     </body>
 </html>
