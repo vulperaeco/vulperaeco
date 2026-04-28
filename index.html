@@ -242,8 +242,37 @@
       }
 
       @media only screen and (max-width: 767px) {
+        
         .site-header {
           display: block;
+        }
+
+        .title-group h1 {
+          font-size: 28px;
+        }
+
+        .burger-menu {
+          display: block;
+        }
+
+        .burger-menu:hover + nav {
+          position: relative;
+          left: 0;
+          top: 1em;
+          display: flex;
+          z-index: 50;
+          flex-flow: column nowrap;
+          justify-content: center;
+          align-items: space-around;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          background:black;
+          backdrop-filter: blur(5px);
+          padding: 1rem;
+          width: 100vw;
+        }
+
+        nav {
+          display: none;
         }
       }
       
@@ -260,6 +289,9 @@
         </div>
       </header>
 
+      <div class="burger-menu">
+        <img src="burger_menu_symbolic_dark_64.webp" width="64" height="64" alt="Menu">
+
       <nav>
         <a href="index.html">Home</a> |
         <a href="about.html">About Us</a> |
@@ -269,6 +301,7 @@
         <a href="projects.html">Our Projects</a> |
         <a href="support.html">Support Us</a>
       </nav>
+      </div>
 
       <div class="container">
         <main>
