@@ -238,8 +238,9 @@
       .header-inner {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         position: relative;
+        width: 100%
       }
 
       .logo {
@@ -318,11 +319,12 @@
         .burger-menu {
           display: block;
           font-size: 1.5rem;
-          background: transparent;
+          background: #111111;
           border: none;
           cursor: pointer;
           margin-left: auto;
           padding: 5px;
+          z-index: 10;
         }
 
         .burger-menu:hover + nav {
