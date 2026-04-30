@@ -216,6 +216,7 @@
        .nav.active {
         display: flex;
         background: #F47A20;
+        flex-direction: column;
       }
 
       .site-header {
@@ -295,9 +296,11 @@
         .burger-menu {
           display: block;
           font-size: 1.5rem;
-          background: none;
+          background: transparent;
           border: none;
           cursor: pointer;
+          margin-left: auto;
+          padding: 5px;
         }
 
         .burger-menu:hover + nav {
