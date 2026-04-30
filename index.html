@@ -235,7 +235,7 @@
         justify-content: space-between;
         width: 100%;
         flex-wrap: nowrap;
-        height: 60px;
+        height: 100%;
         overflow: hidden;
         box-sizing: border-box;
       }
@@ -265,6 +265,21 @@
         display: none;
       }
 
+      .menu-toggle {
+          font-size: 1.4rem;
+          line-height: 1;
+          padding: 0;
+          margin: 0;
+          background: none;
+          border: none;
+          cursor: pointer;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
         @media (min-width: 769px) {
         .nav a:not(:last-child)::after {
           content: " | ";
@@ -274,6 +289,8 @@
           .title-image {
             transform: translateY(-150px);
         }
+          .menu-toggle {
+            visibility: hidden;
         }
 
       @media only screen and (max-width: 767px) {
