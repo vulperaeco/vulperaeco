@@ -215,7 +215,22 @@
 
       .nav {
         display: none;
-        position: absolute;
+      }
+
+        .nav.active {
+         display: flex !important;
+         background: #F47A20;
+         flex-direction: column;
+         opacity: 1;
+         transform: translateY(0);
+          position: absolute;
+          top: 60px;
+          right: 10px;
+          width: 200px;
+          background: #F47A20;
+          border-radius: 10px;
+          box-shadow: 0 8px w0px rgba(0, 0, 0, 0.15);
+          z-index: 9999;
       }
 
       .site-header {
@@ -275,7 +290,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          text-color: white;
+          color: white;
       }
 
         @media (min-width: 769px) {
@@ -317,23 +332,6 @@
           opacity: 0;
           transform: translateY(-10px);
         }
-
-        .nav.active {
-         display: flex !important;
-         background: #F47A20;
-         flex-direction: column;
-         opacity: 1;
-         transform: translateY(0);
-          position: absolute;
-          top: 60px;
-          right: 10px;
-          width: 200px;
-          background: #F47A20;
-          border-radius: 10px;
-          box-shadow: 0 8px w0px rgba(0, 0, 0, 0.15);
-          z-index: 9999;
-      }
-
 
         .title-image {
           max-height: 50px;
@@ -391,7 +389,7 @@
 
     <body>
       <header class="site-header">
-        <a href="home">
+        <a href="index.html">
         <img src="Vulpera-logo-trans2.png" alt="Vulpera Ecological Collective logo since 2026" class="logo">
         <img src="Vulpera-title-trans.png" alt="Vulpera" class="title-image"></a>
         <button class="menu-toggle" onclick="toggleMenu()"><b>☰</b></button>
