@@ -224,12 +224,29 @@
         background: #111111;
         color: white;
         justify-content: space-between;
+        box-sizing: border-box;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
       }
 
       .logo {
         max-height: 160px;
         height: auto;
         display: block;
+      }
+
+      .title-image {
+        max-height: 160px;
+        height: auto;
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .burger-menu {
@@ -262,6 +279,10 @@
 
         .burger-menu {
           display: block;
+          font-size: 1.5rem;
+          background: none;
+          border: none;
+          cursor: pointer;
         }
 
         .burger-menu:hover + nav {
@@ -289,20 +310,9 @@
     <body>
       <header class="site-header">
         <a href="home">
-        <img src="VEC_Logo_enlarged.png" alt="Vulpera Ecological Collective logo since 2026" class="logo"></a>
-
-        <div class="title-group desktop">
-        <h1>Vulpera Ecological Collective</h1>
-        <p>Wildlife Conservation | Education | Ecological Protection</p>
-        </div>
-
-        <div class="title-group mobile">
-          <h1>Vulpera</h1>
-        </div>
-
-        <div class="burger-menu">
-        <img src="hamburger-menu-light.png" width="64" height="64" alt="Menu">
-        </div>
+        <img src="VEC_Logo_enlarged.png" alt="Vulpera Ecological Collective logo since 2026" class="logo">
+        <img src="Vulpera-title.png" alt="Vulpera" class="title-image"></a>
+        <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
 
       </header>
 
@@ -492,6 +502,10 @@
         }
 
         loadAnimalPosts();
+
+        function toggleMenu() {
+          document.getElementById("burger-menu").classList.toggle("active");
+        }
       </script>
     </body>
 </html>
