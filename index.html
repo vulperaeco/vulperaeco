@@ -275,6 +275,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          text-color: white;
       }
 
         @media (min-width: 769px) {
@@ -290,6 +291,7 @@
             visibility: hidden;
         }
           .nav {
+            display: flex !important;
             flex-direction: row;
             position: static;
           }
@@ -317,7 +319,7 @@
         }
 
         .nav.active {
-         display: flex;
+         display: flex !important;
          background: #F47A20;
          flex-direction: column;
          opacity: 1;
@@ -392,7 +394,7 @@
         <a href="home">
         <img src="Vulpera-logo-trans2.png" alt="Vulpera Ecological Collective logo since 2026" class="logo">
         <img src="Vulpera-title-trans.png" alt="Vulpera" class="title-image"></a>
-        <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+        <button class="menu-toggle" onclick="toggleMenu()"><b>☰</b></button>
 
       </header>
 
