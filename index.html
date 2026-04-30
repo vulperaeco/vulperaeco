@@ -3,7 +3,7 @@
 
   <head>
    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
+   <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Home | Vulpera</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="VEC_favicon.png">
@@ -21,23 +21,10 @@
         color:#111111;
       }
 
-      header{
-        background:#111111;
-        color:white;
-        padding:5px;
-        text-align:center;
-      }
-
       main {
         max-width: 1000px;
         margin: auto;
         padding: 20px;
-      }
-
-      nav{
-        background:#F47A20;
-        padding:20px;
-        text-align:center;
       }
 
       nav a{
@@ -73,22 +60,6 @@
 
       .button:hover{
         background-color: #e0661a;
-      }
-
-      .site-header {
-        display: grid;
-        grid-template-columns: 310px 1fr 310px;
-        align-items: center;
-        padding: 0;
-        background: #111111;
-        color: white;
-      }
-
-      .logo {
-        width: 160px;
-        height: auto;
-        display: block;
-        margin: 0 auto 10px auto;
       }
 
       .title-group h1 {
@@ -226,12 +197,6 @@
         margin: auto;
       }
 
-      .footer-logo {
-        position: absolute;
-        right: 20px;
-        width: 50px;
-      }
-
       .footer-buttons {
         text-align: center;
         margin-top: 20px;
@@ -241,14 +206,58 @@
         margin: 0 5px;
       }
 
+      nav {
+        background: #F47A20;
+        padding: 20px;
+        text-align: center;
+        width: 100vw;
+      }
+
+      .site-header {
+        position: sticky;
+        width: 100vw;
+        top: 0px;
+        place-items: center;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0;
+        background: #111111;
+        color: white;
+        justify-content: space-between;
+      }
+
+      .logo {
+        max-height: 160px;
+        height: auto;
+        display: block;
+      }
+
+      .burger-menu {
+        visibility: hidden;
+      }
+
+      .mobile {
+        display: none;
+      }
+
       @media only screen and (max-width: 767px) {
-        
+
+        .mobile {
+          display: block;
+        }
+
+        .logo {
+          max-height: 50px;
+          height: auto;
+          display: block;
+        }
+
         .site-header {
           display: block;
         }
 
-        .title-group h1 {
-          font-size: 28px;
+        .title-group {
+          place-self: center;
         }
 
         .burger-menu {
@@ -257,21 +266,19 @@
 
         .burger-menu:hover + nav {
           position: relative;
-          left: 0;
           top: 1em;
           display: flex;
           z-index: 50;
           flex-flow: column nowrap;
           justify-content: center;
           align-items: space-around;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
           background:black;
           backdrop-filter: blur(5px);
-          padding: 1rem;
-          width: 100vw;
+          padding: 0;
         }
 
-        nav {
+        nav, .desktop {
           display: none;
         }
       }
@@ -281,27 +288,33 @@
 
     <body>
       <header class="site-header">
-        <a href="index.html">
+        <a href="home">
         <img src="VEC_Logo_enlarged.png" alt="Vulpera Ecological Collective logo since 2026" class="logo"></a>
-        <div class="title-group">
-        <h1 class="title-group h1">Vulpera Ecological Collective</h1>
-        <p class="title-group p">Wildlife Conservation | Education | Ecological Protection</p>
+
+        <div class="title-group desktop">
+        <h1>Vulpera Ecological Collective</h1>
+        <p>Wildlife Conservation | Education | Ecological Protection</p>
         </div>
+
+        <div class="title-group mobile">
+          <h1>Vulpera</h1>
+        </div>
+
+        <div class="burger-menu">
+        <img src="hamburger-menu-light.png" width="64" height="64" alt="Menu">
+        </div>
+
       </header>
 
-      <div class="burger-menu">
-        <img src="hamburger-menu-light.png" width="64" height="64" alt="Menu">
-
       <nav>
-        <a href="index.html">Home</a> |
-        <a href="about.html">About Us</a> |
-        <a href="mission.html">Our Mission</a> |
-        <a href="news.html">News</a> |
-        <a href="education.html">Education</a> |
-        <a href="projects.html">Our Projects</a> |
-        <a href="support.html">Support Us</a>
+        <a href="home">Home</a> |
+        <a href="about">About Us</a> |
+        <a href="mission">Our Mission</a> |
+        <a href="news">News</a> |
+        <a href="education">Education</a> |
+        <a href="projects">Our Projects</a> |
+        <a href="support">Support Us</a>
       </nav>
-      </div>
 
       <div class="container">
         <main>
@@ -426,7 +439,6 @@
         <a href="https://www.facebook.com/share/1GXtVb9H3a/" target="_blank">Facebook</a>
       </p>
       </div>
-        <img src="VEC_Logo_enlarged.png" alt="Vulpera logo since 2026" class="footer-logo">
       </footer>
 
      <script>
