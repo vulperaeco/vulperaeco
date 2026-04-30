@@ -228,11 +228,12 @@
         place-items: center;
         display: flex;
         flex-flow: row wrap;
-        padding: 0;
+        padding: 8px 15px;
         background: #111111;
         color: white;
         justify-content: space-between;
         box-sizing: border-box;
+        height: 60px;
       }
 
       .header-inner {
@@ -242,12 +243,14 @@
         position: relative;
         width: 100%
         flex-wrap: nowrap;
+        height: 100%
       }
 
       .logo {
         max-height: 160px;
         height: auto;
         display: block;
+        flex-shrink: 0;
       }
 
       .title-image {
@@ -256,6 +259,8 @@
         display: block;
         margin: 0 auto;
         left: 50%;
+        flex-shrink: 1;
+        width: auto;
       }
 
       .burger-menu {
@@ -272,10 +277,6 @@
           margin-left: 8px;
           margin-right: 8px;
         }
-
-        .title-image {
-          transform: translateY(-50px)
-      }
 
       @media only screen and (max-width: 767px) {
 
