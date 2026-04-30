@@ -229,13 +229,15 @@
       }
 
       .header-inner {
-        display: flex;
+        display: grid;
+        grid-template-columns: auto  1fr auto;
         align-items: center;
         justify-content: space-between;
-        width: 100%
+        width: 100%;
         flex-wrap: nowrap;
-        height: 60px
+        height: 60px;
         overflow: hidden;
+        box-sizing: border-box;
       }
 
       .logo {
@@ -270,7 +272,7 @@
           margin-right: 8px;
         }
           .title-image {
-            transform: translateY(-50px);
+            transform: translateY(-150px);
         }
         }
 
