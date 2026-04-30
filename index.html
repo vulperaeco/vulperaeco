@@ -263,6 +263,14 @@
         display: none;
       }
 
+        @media (min-width: 769px) {
+        .nav a:not(:last-child)::after {
+          content: " | ";
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+      }
+
       @media only screen and (max-width: 767px) {
 
         .mobile {
@@ -271,6 +279,15 @@
 
         .nav {
           display: none;
+          position: absolute;
+          top: 50px;
+          left: 10px;
+          width: 200px;
+          background: #F47A20;
+          border-radius: 10px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          flex-direction: column;
+          z-index: 1000;
         }
 
         .title-image {
@@ -335,12 +352,12 @@
       </header>
 
       <nav class="nav" id="nav-menu">
-        <a href="home">Home</a> |
-        <a href="about">About Us</a> |
-        <a href="mission">Our Mission</a> |
-        <a href="news">News</a> |
-        <a href="education">Education</a> |
-        <a href="projects">Our Projects</a> |
+        <a href="home">Home</a>
+        <a href="about">About Us</a>
+        <a href="mission">Our Mission</a>
+        <a href="news">News</a>
+        <a href="education">Education</a>
+        <a href="projects">Our Projects</a>
         <a href="support">Support Us</a>
       </nav>
 
