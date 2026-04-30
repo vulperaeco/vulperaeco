@@ -252,13 +252,17 @@
         box-sizing: border-box;
       }
 
+      .header-inner img {
+        max-width: none;
+      }
+
       .logo {
-        max-height: 160px;
-        height: auto;
+        width: auto !important;
+        height: 50px !important;
+        max-height: 160px !important;
+        max-width: none !important;
+        object-fit: contain;
         display: block;
-        flex-shrink: 0;
-        max-width: 100%
-        align-self: center;
       }
 
       .title-image {
