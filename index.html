@@ -213,12 +213,9 @@
         width: 100vw;
       }
 
-       .nav.active {
-        display: flex;
-        background: #F47A20;
-        flex-direction: column;
-        opacity: 1;
-        transform: translateY(0);
+      .nav {
+        display: none;
+        position: absolute;
       }
 
       .site-header {
@@ -292,6 +289,10 @@
           .menu-toggle {
             visibility: hidden;
         }
+          .nav {
+            flex-direction: row;
+            position: static;
+          }
 
       @media only screen and (max-width: 767px) {
 
@@ -314,6 +315,23 @@
           opacity: 0;
           transform: translateY(-10px);
         }
+
+        .nav.active {
+         display: flex;
+         background: #F47A20;
+         flex-direction: column;
+         opacity: 1;
+         transform: translateY(0);
+          position: absolute;
+          top: 60px;
+          right: 10px;
+          width: 200px;
+          background: #F47A20;
+          border-radius: 10px;
+          box-shadow: 0 8px w0px rgba(0, 0, 0, 0.15);
+          z-index: 9999;
+      }
+
 
         .title-image {
           max-height: 50px;
