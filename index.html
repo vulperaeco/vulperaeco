@@ -213,6 +213,11 @@
         width: 100vw;
       }
 
+       .nav.active {
+        display: flex;
+        background: #F47A20;
+      }
+
       .site-header {
         position: sticky;
         width: 100vw;
@@ -261,6 +266,10 @@
 
         .mobile {
           display: block;
+        }
+
+        .nav {
+          display: none;
         }
 
         .title-image {
@@ -322,7 +331,7 @@
 
       </header>
 
-      <nav>
+      <nav class="nav" id="nav-menu">
         <a href="home">Home</a> |
         <a href="about">About Us</a> |
         <a href="mission">Our Mission</a> |
@@ -510,7 +519,7 @@
         loadAnimalPosts();
 
         function toggleMenu() {
-          document.getElementById("burger-menu").classList.toggle("active");
+          document.getElementById("nav-menu").classList.toggle("active");
         }
       </script>
     </body>
